@@ -1,0 +1,56 @@
+public class Main {
+
+    public static void main(String[] args) {
+
+        NodoArbol<String> raiz =
+                new NodoArbol<>("Atletismo");
+
+        NodoArbol<String> saltoLargo =
+                new NodoArbol<>("Salto largo");
+
+        NodoArbol<String> saltoAlto =
+                new NodoArbol<>("Salto alto");
+
+        NodoArbol<String> vallas =
+                new NodoArbol<>("Carreras de vallas");
+
+        NodoArbol<String> fondo =
+                new NodoArbol<>("Carreras de fondo");
+
+        NodoArbol<String> planos80 =
+                new NodoArbol<>("80 metros planos");
+
+        NodoArbol<String> planos100 =
+                new NodoArbol<>("100 metros planos");
+
+        NodoArbol<String> jabalina =
+                new NodoArbol<>("Lanzamiento de jabalina");
+
+        raiz.setIzquierdo(saltoLargo);
+        raiz.setDerecho(saltoAlto);
+
+        saltoLargo.setIzquierdo(vallas);
+        saltoLargo.setDerecho(fondo);
+
+        saltoAlto.setIzquierdo(planos80);
+        saltoAlto.setDerecho(planos100);
+
+        vallas.setIzquierdo(jabalina);
+
+        System.out.println("ARBOL BINARIO DE ATLETISMO");
+        imprimirArbol(raiz);
+    }
+
+    public static void imprimirArbol(
+            NodoArbol<String> nodo) {
+
+        if (nodo == null) {
+            return;
+        }
+
+        System.out.println(nodo.getDato());
+
+        imprimirArbol(nodo.getIzquierdo());
+        imprimirArbol(nodo.getDerecho());
+    }
+}
