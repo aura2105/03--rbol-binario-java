@@ -1,56 +1,67 @@
+```java
+// Clase principal del programa
 public class Main {
 
+    // Método principal donde comienza la ejecución
     public static void main(String[] args) {
 
-        NodoArbol<String> raiz =
-                new NodoArbol<>("Atletismo");
+        // Creamos la raíz del árbol binario
+        NodoArbol<String> raiz = new NodoArbol<>("Atletismo");
 
-        NodoArbol<String> saltoLargo =
-                new NodoArbol<>("Salto largo");
+        // Creamos los nodos del árbol
+        NodoArbol<String> saltoLargo = new NodoArbol<>("Salto largo");
+        NodoArbol<String> saltoAlto = new NodoArbol<>("Salto alto");
+        NodoArbol<String> vallas = new NodoArbol<>("Carreras de vallas");
+        NodoArbol<String> fondo = new NodoArbol<>("Carreras de fondo");
+        NodoArbol<String> planos80 = new NodoArbol<>("80 metros planos");
+        NodoArbol<String> planos100 = new NodoArbol<>("100 metros planos");
+        NodoArbol<String> jabalina = new NodoArbol<>("Lanzamiento de jabalina");
 
-        NodoArbol<String> saltoAlto =
-                new NodoArbol<>("Salto alto");
-
-        NodoArbol<String> vallas =
-                new NodoArbol<>("Carreras de vallas");
-
-        NodoArbol<String> fondo =
-                new NodoArbol<>("Carreras de fondo");
-
-        NodoArbol<String> planos80 =
-                new NodoArbol<>("80 metros planos");
-
-        NodoArbol<String> planos100 =
-                new NodoArbol<>("100 metros planos");
-
-        NodoArbol<String> jabalina =
-                new NodoArbol<>("Lanzamiento de jabalina");
-
+        // Conectamos salto largo a la izquierda de Atletismo
         raiz.setIzquierdo(saltoLargo);
+
+        // Conectamos salto alto a la derecha de Atletismo
         raiz.setDerecho(saltoAlto);
 
+        // Conectamos carreras de vallas a la izquierda de salto largo
         saltoLargo.setIzquierdo(vallas);
+
+        // Conectamos carreras de fondo a la derecha de salto largo
         saltoLargo.setDerecho(fondo);
 
+        // Conectamos 80 metros planos a la izquierda de salto alto
         saltoAlto.setIzquierdo(planos80);
+
+        // Conectamos 100 metros planos a la derecha de salto alto
         saltoAlto.setDerecho(planos100);
 
+        // Conectamos lanzamiento de jabalina a la izquierda de carreras de vallas
         vallas.setIzquierdo(jabalina);
 
+        // Mostramos el título del programa
         System.out.println("ARBOL BINARIO DE ATLETISMO");
+        System.out.println("--------------------------");
+
+        // Llamamos al método para imprimir el árbol
         imprimirArbol(raiz);
     }
 
-    public static void imprimirArbol(
-            NodoArbol<String> nodo) {
+    // Método recursivo para recorrer e imprimir los nodos
+    public static void imprimirArbol(NodoArbol<String> nodo) {
 
+        // Si el nodo es nulo, finalizamos el recorrido de esa rama
         if (nodo == null) {
             return;
         }
 
+        // Imprimimos el dato del nodo actual
         System.out.println(nodo.getDato());
 
+        // Recorremos el subárbol izquierdo
         imprimirArbol(nodo.getIzquierdo());
+
+        // Recorremos el subárbol derecho
         imprimirArbol(nodo.getDerecho());
     }
 }
+```
